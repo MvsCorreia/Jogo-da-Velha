@@ -1,43 +1,76 @@
 <mxfile host="app.diagrams.net" modified="2025-07-08T00:00:00" agent="Mozilla/5.0" version="22.1.6" type="device">
-  <diagram name="Caso de Uso - Sistema de Cinema" id="Ux6fJKlL8o-3LQwz7VHm">
-    <mxGraphModel dx="946" dy="560" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <diagram name="Diagrama de Classes - Sistema de Cinema" id="Ux6fJKlL8o-3LQwz7VHm">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        
-        <!-- Atores -->
-        <mxCell id="actor_cliente" value="Cliente" style="actor;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="100" y="200" width="40" height="60" as="geometry" />
+
+        <!-- Classe Filme -->
+        <mxCell id="Filme" value="&lt;b&gt;Filme&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- titulo: String&lt;br&gt;- duracao: int&lt;br&gt;- genero: String&lt;br&gt;- classificacao: String&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ getInfo(): String" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="200" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="actor_funcionario" value="Funcionário" style="actor;shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="500" y="200" width="40" height="60" as="geometry" />
+
+        <!-- Classe Sessao -->
+        <mxCell id="Sessao" value="&lt;b&gt;Sessao&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- codigo: String&lt;br&gt;- data: Date&lt;br&gt;- horario: Time&lt;br&gt;- sala: int&lt;br&gt;- preco: float&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ criarIngresso()&lt;br&gt;+ listarIngressos()" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="200" width="150" height="180" as="geometry" />
         </mxCell>
-        
-        <!-- Casos de Uso -->
-        <mxCell id="caso_comprar" value="Comprar Ingresso" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="200" y="150" width="120" height="60" as="geometry" />
+
+        <!-- Classe Ingresso -->
+        <mxCell id="Ingresso" value="&lt;b&gt;Ingresso&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- codigo: String&lt;br&gt;- dataCompra: Date&lt;br&gt;- valor: float&lt;br&gt;- assento: String&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ validar()" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="caso_consultar" value="Consultar Sessões" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="350" y="250" width="120" height="60" as="geometry" />
+
+        <!-- Classe Cliente -->
+        <mxCell id="Cliente" value="&lt;b&gt;Cliente&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- nome: String&lt;br&gt;- cpf: String&lt;br&gt;- email: String&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ comprarIngresso()" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="150" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="caso_relatorio" value="Gerar Relatório" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="350" y="350" width="120" height="60" as="geometry" />
+
+        <!-- Classe Funcionario -->
+        <mxCell id="Funcionario" value="&lt;b&gt;Funcionario&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;br&gt;- matricula: String&lt;br&gt;- nome: String&lt;br&gt;- cargo: String&lt;br&gt;&lt;hr&gt;&lt;br&gt;+ consultarSessoes()&lt;br&gt;+ gerarRelatorio()" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="400" width="150" height="150" as="geometry" />
         </mxCell>
-        
-        <!-- Relacionamentos COM SETAS -->
-        <mxCell id="rel_cliente_comprar" value="" style="endArrow=classic;html=1;strokeWidth=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_cliente" target="caso_comprar">
-          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+
+        <!-- Relacionamentos -->
+
+        <!-- Sessao TEM UM Filme (1..1) -->
+        <mxCell id="rel_sessao_filme" value="1" style="endArrow=open;html=1;strokeWidth=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="Sessao" target="Filme">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="250" y="275" as="sourcePoint" />
+            <mxPoint x="350" y="275" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="rel_funcionario_consultar" value="" style="endArrow=classic;html=1;strokeWidth=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_funcionario" target="caso_consultar">
-          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+        <mxCell id="label_sessao_filme" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="225" y="270" width="20" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="rel_funcionario_relatorio" value="" style="endArrow=classic;html=1;strokeWidth=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_funcionario" target="caso_relatorio">
-          <mxGeometry width="50" height="50" relative="1" as="geometry" />
+
+        <!-- Sessao TEM VÁRIOS Ingressos (1..*) -->
+        <mxCell id="rel_sessao_ingresso" value="1..*" style="endArrow=open;html=1;strokeWidth=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="Sessao" target="Ingresso">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="275" as="sourcePoint" />
+            <mxPoint x="600" y="275" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-        
-        <!-- Sistema (retângulo) -->
-        <mxCell id="sistema" value="Sistema de Cinema" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="150" y="100" width="400" height="400" as="geometry" />
+
+        <!-- Cliente COMPRA Ingressos (*) -->
+        <mxCell id="rel_cliente_ingresso" value="" style="endArrow=open;html=1;strokeWidth=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" edge="1" parent="1" source="Cliente" target="Ingresso">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="675" y="400" as="sourcePoint" />
+            <mxPoint x="675" y="275" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_cliente_ingresso" value="*" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="650" y="325" width="20" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Funcionario CONSULTA Sessoes (*) -->
+        <mxCell id="rel_funcionario_sessao" value="" style="endArrow=open;html=1;strokeWidth=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" edge="1" parent="1" source="Funcionario" target="Sessao">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="425" y="400" as="sourcePoint" />
+            <mxPoint x="425" y="275" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_funcionario_sessao" value="*" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="325" width="20" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
