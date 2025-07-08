@@ -24,14 +24,14 @@
           <mxGeometry x="350" y="350" width="120" height="60" as="geometry" />
         </mxCell>
         
-        <!-- Relacionamentos -->
-        <mxCell id="rel_cliente_comprar" value="" style="line;html=1;strokeWidth=1;endArrow=none;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_cliente" target="caso_comprar">
+        <!-- Relacionamentos COM SETAS -->
+        <mxCell id="rel_cliente_comprar" value="" style="endArrow=classic;html=1;strokeWidth=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_cliente" target="caso_comprar">
           <mxGeometry width="50" height="50" relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rel_funcionario_consultar" value="" style="line;html=1;strokeWidth=1;endArrow=none;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_funcionario" target="caso_consultar">
+        <mxCell id="rel_funcionario_consultar" value="" style="endArrow=classic;html=1;strokeWidth=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_funcionario" target="caso_consultar">
           <mxGeometry width="50" height="50" relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rel_funcionario_relatorio" value="" style="line;html=1;strokeWidth=1;endArrow=none;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_funcionario" target="caso_relatorio">
+        <mxCell id="rel_funcionario_relatorio" value="" style="endArrow=classic;html=1;strokeWidth=1;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="actor_funcionario" target="caso_relatorio">
           <mxGeometry width="50" height="50" relative="1" as="geometry" />
         </mxCell>
         
